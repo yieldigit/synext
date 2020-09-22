@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Synext\Databases;
 
 use PDO;
 

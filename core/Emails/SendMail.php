@@ -1,5 +1,5 @@
 <?php
-namespace App\Emails;
+namespace Synext\Emails;
 
 use Swift_Mailer;
 use Swift_Message;

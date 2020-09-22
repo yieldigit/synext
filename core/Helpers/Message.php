@@ -1,5 +1,5 @@
 <?php
-namespace App\Helpers;
+namespace Synext\Helpers;
 class Message{
     public static function error($message){
         return <<<HTML

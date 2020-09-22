@@ -1,5 +1,5 @@
 <?php 
-namespace App\Helpers;
+namespace Synext\Helpers;
 class Session{
     /**
      * Check if session is enable else enable it 

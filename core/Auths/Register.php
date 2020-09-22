@@ -1,10 +1,10 @@
 <?php
-namespace App\Auths;
+namespace Synext\Auths;
 
-use App\Database;
-use App\Emails\SendMail;
-use App\Htmls\HtmlTemplate;
-use App\Models\Users;
+use Synext\Databases\Database;
+use Synext\Emails\SendMail;
+use Synext\Htmls\HtmlTemplate;
+use Synext\Models\Users;
 
 class Register{
     private $db;

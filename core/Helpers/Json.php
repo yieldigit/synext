@@ -1,5 +1,5 @@
 <?php
-namespace App\Helpers;
+namespace Synext\Helpers;
 class Json{
     public static function message(bool $error = false,string $message=null, array $data = null){
         header('Content-Type: application/json');
