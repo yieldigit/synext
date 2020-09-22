@@ -1,5 +1,5 @@
 <?php
-namespace App\Helpers;
+namespace Synext\Helpers;
 class Html{
 
     public static function navbaractive(string $name, string $url, string $icon = null): string

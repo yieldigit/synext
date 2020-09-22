@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Auths;
+namespace Synext\Auths;
 
-use App\Controllers\User;
-use App\Helpers\Redirect;
-use App\Helpers\Session;
+use Synext\Controllers\User;
+use Synext\Helpers\Redirect;
+use Synext\Helpers\Session;
 
 class Auth
 {

@@ -1,5 +1,8 @@
 <?php 
-namespace App\Validators;
-class Validator extends ValidateLogin{
+namespace Synext\Validators;
+
+use Valitron\Validator as ValitronValidator;
+
+class Validator extends ValitronValidator{
 
 }

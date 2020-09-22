@@ -1,9 +1,9 @@
 <?php 
-namespace App\Auths;
+namespace Synext\Auths;
 
-use App\Database;
-use App\Emails\SendMail;
-use App\Htmls\HtmlTemplate;
+use Synext\Databases\Database;
+use Synext\Emails\SendMail;
+use Synext\Htmls\HtmlTemplate;
 
 class Account{
     private $db;

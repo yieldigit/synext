@@ -1,5 +1,5 @@
 <?php 
-namespace App\Helpers;
+namespace Synext\Helpers;
 class Redirect{
     public static function To(string $url){
         header('Location: '.$url);

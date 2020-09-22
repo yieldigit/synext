@@ -1,11 +1,11 @@
 <?php
-namespace App\Auths;
+namespace Synext\Auths;
 
-use App\Database;
-use App\Helpers\FlashMessage;
-use App\Helpers\Redirect;
-use App\Helpers\Session;
-use App\Models\Users;
+use Synext\Databases\Database;
+use Synext\Helpers\FlashMessage;
+use Synext\Helpers\Redirect;
+use Synext\Helpers\Session;
+use Synext\Models\Users;
 use PDO;
 class Login {
 

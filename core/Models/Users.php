@@ -1,5 +1,5 @@
 <?php 
-namespace App\Models;
+namespace Synext\Models;
 class Users{
     private $id;
     private $username;
