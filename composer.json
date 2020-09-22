@@ -3,15 +3,14 @@
     "description": "simple fast php home framework :) !",
     "type": "project",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Ambroise Hound",
-            "email": "ambroisehound@gmail.com"
-        }
-    ],
+    "authors": [{
+        "name": "Ambroise Hound",
+        "email": "ambroisehound@gmail.com"
+    }],
     "minimum-stability": "dev",
     "require": {
-    	"altorouter/altorouter": "^2.0"
+        "php": ">=7.4.5",
+        "altorouter/altorouter": "^2.0"
     },
     "autoload": {
         "psr-4": {
