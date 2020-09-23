@@ -1,13 +1,13 @@
 <?php
-namespace Synext\Emails;
+namespace Synext\Components\Emails;
 
 use Swift_Mailer;
 use Swift_Message;
 use Swift_SmtpTransport;
 
 class SendMail{
-    const SMTPUSER = 'noreply@informatutos.com';
-    const SMTPPASS = 'Rootforuserroot07$';
+    const SMTPUSER = '';
+    const SMTPPASS = '';
 
     /**
      * send_mail.

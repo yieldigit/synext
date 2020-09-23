@@ -1,7 +1,8 @@
 <?php
 namespace Synext\Controllers;
 
-use Synext\Databases\Database;
+use Synext\Components\Databases\Database;
+
 use Synext\Models\Users;
 use PDO;
 class User{

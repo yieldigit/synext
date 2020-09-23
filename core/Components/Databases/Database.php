@@ -1,6 +1,6 @@
 <?php
 
-namespace Synext\Databases;
+namespace Synext\Components\Databases;
 
 use PDO;
 
@@ -14,10 +14,10 @@ class Database
 
     public function __construct()
     {
-        $this->DB_HOST = 'localhost';
-        $this->DB_USER = 'ambroise';
-        $this->DB_PASS = 'root';
-        $this->DB_NAME = 'InformaUrl';
+        $this->DB_HOST = '';
+        $this->DB_USER = '';
+        $this->DB_PASS = '';
+        $this->DB_NAME = '';
         try {
             $this->db = new PDO('mysql:host='.$this->DB_HOST.';dbname='.$this->DB_NAME.';charset=utf8', $this->DB_USER, $this->DB_PASS,
             [

@@ -1,5 +1,5 @@
 <?php 
-namespace Synext\Validators;
+namespace Synext\Components\Validators;
 
 use Valitron\Validator as ValitronValidator;
 

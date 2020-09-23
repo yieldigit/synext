@@ -1,5 +1,5 @@
 <?php
-namespace Synext\Htmls;
+namespace Synext\Components\Htmls;
 class Form
 {
     private $data;

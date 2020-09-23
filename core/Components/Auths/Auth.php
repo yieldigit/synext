@@ -1,6 +1,6 @@
 <?php
 
-namespace Synext\Auths;
+namespace Synext\Components\Auths;
 
 use Synext\Controllers\User;
 use Synext\Helpers\Redirect;

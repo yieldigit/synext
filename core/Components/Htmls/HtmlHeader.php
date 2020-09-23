@@ -1,6 +1,6 @@
 <?php
 
-namespace Synext\Htmls;
+namespace Synext\Components\Htmls;
 
 class HtmlHeader
 {

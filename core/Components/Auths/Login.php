@@ -1,7 +1,7 @@
 <?php
-namespace Synext\Auths;
+namespace Synext\Components\Auths;
 
-use Synext\Databases\Database;
+use Synext\Components\Databases\Database;
 use Synext\Helpers\FlashMessage;
 use Synext\Helpers\Redirect;
 use Synext\Helpers\Session;
