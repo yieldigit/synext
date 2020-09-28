@@ -3,6 +3,7 @@
 namespace Synext\Routers;
 
 use AltoRouter;
+use Exception;
 
 class Router
 {
@@ -13,18 +14,19 @@ class Router
      */
     private $router;
     /**
-     * viewPath.
+     * view_path.
      *
      * @var string
      */
-    private $viewPath;
+    private $view_path;
+    private $layout_path;
+    private $default_layout_path;
+    private $admin_layout_Path ;
 
-    private $layoutsPath = 'public_html/layouts/index.php';
-    private $adminLayoutsPath = 'public_html/adminslayouts/index.php';
-
-    public function __construct(string $viewPath)
+    public function __construct(string $view_path, string $public_path)
     {
-        $this->viewPath = $viewPath;
+        $this->view_path = $view_path;
+        $this->layout_path = $public_path.DIRECTORY_SEPARATOR.'layouts'.DIRECTORY_SEPARATOR;
         $this->router = new AltoRouter();
     }
 
@@ -90,37 +92,23 @@ class Router
     public function run(): self
     {
         $match = $this->router->match();
-        try{
-            $view = $match['target'];
-            $params = $match['params'];
-        }catch(\Exception $e){
-            http_response_code(404);
-            require dirname(__DIR__).DIRECTORY_SEPARATOR.'views/errors/404.php';
-            die();
+        if(is_bool($match)){
+            throw new Exception("Route not found");
         }
-        if (in_array('admins', explode('/', $view))) {
-            /** @var Router */
-            //dd(in_array('admins',explode('/',$view)));
-            $router = $this;
-            ob_start();
-            require_once $this->viewPath.DIRECTORY_SEPARATOR.$view.'.php';
-            $contentsadmin = ob_get_clean();
-            require_once dirname(__DIR__).DIRECTORY_SEPARATOR.$this->adminLayoutsPath;
-
-            return $this;
-            exit;
+        $view = $match['target'];
+        $params = $match['params'];
+        /** @var Router */
+        $router = $this;
+        $content_files = $this->view_path.DIRECTORY_SEPARATOR.$view.'.php';
+        if(!file_exists($content_files)){
+            throw new Exception("The route does not correspond to any view");
         }
-        if (!in_array('ajaxs', explode('/', $view))) {
-            /** @var Router */
-            $router = $this;
-            ob_start();
-            require_once $this->viewPath.DIRECTORY_SEPARATOR.$view.'.php';
-            $contents = ob_get_clean();
-            require_once dirname(__DIR__).DIRECTORY_SEPARATOR.$this->layoutsPath;
-        } else {
-            require_once $this->viewPath.DIRECTORY_SEPARATOR.$view.'.php';
-        }
-
+        ob_start();
+        require_once $content_files;
+        $contents = ob_get_clean();
+        /** default layout path */
+        $this->default_layout_path = $this->layout_path.'defaults'.DIRECTORY_SEPARATOR.'index.php';
+        require_once dirname(__DIR__,2).$this->default_layout_path;
         return $this;
     }
 }
