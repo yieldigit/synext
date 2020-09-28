@@ -19,10 +19,6 @@ class ComposerStaticInit0d625b64d11b4bf5cc05dce2f9ef8d9c
     );
 
     public static $prefixLengthsPsr4 = array (
-        's' => 
-        array (
-            'synext\\' => 7,
-        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -33,6 +29,7 @@ class ComposerStaticInit0d625b64d11b4bf5cc05dce2f9ef8d9c
         ),
         'S' => 
         array (
+            'Synext\\' => 7,
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Php70\\' => 23,
@@ -57,10 +54,6 @@ class ComposerStaticInit0d625b64d11b4bf5cc05dce2f9ef8d9c
     );
 
     public static $prefixDirsPsr4 = array (
-        'synext\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/core',
-        ),
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
@@ -68,6 +61,10 @@ class ComposerStaticInit0d625b64d11b4bf5cc05dce2f9ef8d9c
         'Valitron\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron',
+        ),
+        'Synext\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (

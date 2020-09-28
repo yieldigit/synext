@@ -6,9 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'synext\\' => array($baseDir . '/core'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Valitron\\' => array($vendorDir . '/vlucas/valitron/src/Valitron'),
+    'Synext\\' => array($baseDir . '/core'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
     'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
     'Symfony\\Polyfill\\Php70\\' => array($vendorDir . '/symfony/polyfill-php70'),
