@@ -8,6 +8,9 @@ use Swift_SmtpTransport;
 class SendMail{
     const SMTPUSER = '';
     const SMTPPASS = '';
+    const SMTPSERVER = '';
+    const SMTPPORT = '';
+    const SMTPSECURED = '';
 
     /**
      * send_mail.
@@ -19,16 +22,16 @@ class SendMail{
      *
      * @return bool
      */
-    public static function mailTo(string $from, string $to,string $subject, string $message):bool{
+    public static function mailTo(array $from, string $to,string $subject, string $message):bool{
         $name = explode('@',$to);
         try{
-            $transport = (new Swift_SmtpTransport('smtp.zoho.com', 465, 'ssl'))
+            $transport = (new Swift_SmtpTransport(self::SMTPSERVER, self::SMTPPORT, self::SMTPSECURED))
                 ->setUsername(self::SMTPUSER)
                 ->setPassword(self::SMTPPASS);
             $mailer = new Swift_Mailer($transport);
             $content = (new Swift_Message())
                 ->setSubject($subject)
-                ->setFrom([$from=>'InformaUrl'])
+                ->setFrom($from)
                 ->setTo($to)
                 ->setBody($message, 'text/html');
             if ($mailer->send($content)) {
