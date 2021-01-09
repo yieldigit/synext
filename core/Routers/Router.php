@@ -2,11 +2,13 @@
 
 namespace Synext\Routers;
 
-use AltoRouter;
 use Exception;
+use AltoRouter;
+use Synext\Requests\Http;
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
 
-class Router
-{
+class Router{
     /**
      * router.
      *
@@ -19,14 +21,10 @@ class Router
      * @var string
      */
     private $view_path;
-    private $layout_path;
-    private $default_layout_path;
-    private $admin_layout_Path ;
 
     public function __construct(string $view_path, string $public_path)
     {
-        $this->view_path = $view_path;
-        $this->layout_path = $public_path.DIRECTORY_SEPARATOR.'layouts'.DIRECTORY_SEPARATOR;
+        $this->view_path = $view_path.DIRECTORY_SEPARATOR;
         $this->router = new AltoRouter();
     }
 
@@ -52,8 +50,8 @@ class Router
      *
      * @return self
      */
-    public function get(string $url, string $view, ?string $name = null): self
-    {
+    public function get(string $url, string $view,?string $name = null): self
+    {   
         $this->router->map('GET', $url, $view, $name);
 
         return $this;
@@ -68,8 +66,9 @@ class Router
      *
      * @return self
      */
-    public function post(string $url, string $view, ?string $name = null): self
+    public function post(string $url, string $view,?string $name = null): self
     {
+       
         $this->router->map('POST', $url, $view, $name);
 
         return $this;
@@ -83,32 +82,73 @@ class Router
      *
      * @return self
      */
-    public function getPost(string $url, string $view, ?string $name = null): self
+    public function getPost(string $url, string $view,?string $name = null): self
     {
+        
         $this->router->map('GET|POST', $url, $view, $name);
 
         return $this;
     }
+    /**
+     * To add Api Route For json data return or orther
+     * With this route you can not display html content in web browser
+     * @param array $routes
+     *         $routes = [
+     *      [$method, $route, $target, $name]
+     *   ];
+     *
+     */
+    public function resource(array $routes){
+        //dd($routes);
+        
+        $this->router->addRoutes($routes);
+        return $this;
+    }
     public function run(): self
-    {
+    {   /**
+        * @var  array or bool 
+        */
         $match = $this->router->match();
-        if(is_bool($match)){
-            throw new Exception("Route not found");
+        if(is_bool($match) && $match === false){
+            /** Route not found */
+            require_once $this->view_path.'errors/400.php';
+            Http::status(400);
+            die();
         }
-        $view = $match['target'];
-        $params = $match['params'];
-        /** @var Router */
+
+        [$route_view,$route_param,$route_name] = array_values($match);
         $router = $this;
-        $content_files = $this->view_path.DIRECTORY_SEPARATOR.$view.'.php';
-        if(!file_exists($content_files)){
-            throw new Exception("The route does not correspond to any view");
+        $view_content_files = $this->view_path.$route_view.'.php';
+
+        if(!file_exists($view_content_files)){
+            /** view file not found */
+            require_once $this->view_path.'errors/404.php';
+            Http::status(404);
+            die();
+        }
+
+        /** i can get more then 1 line */
+        $layout_line = trim(str_replace(['?','<','>',';'],'',rtrim(file($view_content_files)[0])));
+        /** i can do more */
+        $layout = $this->view_path.explode('::',$layout_line)[1].'.php';
+        // $f = new RecursiveDirectoryIterator($this->view_path);
+        // // dd($f);
+        // foreach(new RecursiveIteratorIterator($f) as $file)
+        // {
+        //     dump($file);
+        // }
+        if(!file_exists($layout)){
+            /** view file not found */
+            require_once $this->view_path.'errors/404.php';
+            Http::status(404);
+            die();
         }
         ob_start();
-        require_once $content_files;
+        require_once $view_content_files;
         $contents = ob_get_clean();
         /** default layout path */
-        $this->default_layout_path = $this->layout_path.'defaults'.DIRECTORY_SEPARATOR.'index.php';
-        require_once dirname(__DIR__,2).$this->default_layout_path;
+        require_once $layout;
+        // require_once dirname(__DIR__,2).$this->default_layout_path;
         return $this;
     }
 }

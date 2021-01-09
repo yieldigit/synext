@@ -8,7 +8,7 @@ class Http{
         }
         return false;
     }
-    public static function _header(string $status_code){
-
+    public static function status(int $status_code=200){
+        return http_response_code($status_code);
     }
 }

@@ -1,1 +1,0 @@
-<h2>I AM ADMIN SYNEXT</h2>

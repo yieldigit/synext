@@ -13,5 +13,9 @@ $view_paths = DIRECTORY_SEPARATOR.dirname($_SERVER['DOCUMENT_ROOT']).DIRECTORY_S
 
 /** Router  */
 $router = new Router($view_paths,$public_paths);
+
 $router->get('/','default/index')
+        //     ->resource(
+        //             [['GET','/li','pop',]]
+        //     )
     ->run();
