@@ -5,9 +5,6 @@ namespace Synext\Routers;
 use Exception;
 use AltoRouter;
 use Synext\Requests\Http;
-use RecursiveIteratorIterator;
-use RecursiveDirectoryIterator;
-
 class Router{
     /**
      * router.
@@ -130,25 +127,32 @@ class Router{
         /** i can get more then 1 line */
         $layout_line = trim(str_replace(['?','<','>',';'],'',rtrim(file($view_content_files)[0])));
         /** i can do more */
-        $layout = $this->view_path.explode('::',$layout_line)[1].'.php';
+        $layout = $layout_line[0] === '@' ? $this->view_path.explode('::',$layout_line)[1].'.php' : false;
+       // $layout = $this->view_path.explode('::',$layout_line)[1].'.php';
         // $f = new RecursiveDirectoryIterator($this->view_path);
         // // dd($f);
         // foreach(new RecursiveIteratorIterator($f) as $file)
         // {
         //     dump($file);
         // }
-        if(!file_exists($layout)){
+
+        if(!is_bool($layout) && !file_exists($layout)){
             /** view file not found */
             require_once $this->view_path.'errors/404.php';
             Http::status(404);
             die();
         }
-        ob_start();
-        require_once $view_content_files;
-        $contents = ob_get_clean();
-        /** default layout path */
-        require_once $layout;
-        // require_once dirname(__DIR__,2).$this->default_layout_path;
+
+        if($layout_line[0] === '@'){
+            ob_start();
+            require_once $view_content_files;
+            $contents = ob_get_clean();
+            /** default layout path */
+            require_once $layout;
+            // require_once dirname(__DIR__,2).$this->default_layout_path;
+        }else{
+            require_once $view_content_files;
+        }
         return $this;
     }
 }
