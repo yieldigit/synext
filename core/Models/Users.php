@@ -1,6 +1,11 @@
-<?php 
+<?php
+
 namespace Synext\Models;
-class Users{
+
+use Synext\Models\Model;
+
+class Users extends Model
+{
     private $id;
     private $username;
     private $email;
@@ -10,8 +15,8 @@ class Users{
 
     /**
      * Get the value of id
-     */ 
-    public function getId():int
+     */
+    public function getId(): int
     {
         return $this->id;
     }
@@ -20,7 +25,7 @@ class Users{
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId(int $id)
     {
         $this->id = $id;
@@ -30,8 +35,8 @@ class Users{
 
     /**
      * Get the value of username
-     */ 
-    public function getUsername() :string
+     */
+    public function getUsername(): string
     {
         return htmlentities($this->username);
     }
@@ -40,7 +45,7 @@ class Users{
      * Set the value of username
      *
      * @return  self
-     */ 
+     */
     public function setUsername(string $username)
     {
         $this->username = $username;
@@ -50,8 +55,8 @@ class Users{
 
     /**
      * Get the value of email 
-     */ 
-    public function getEmail():string
+     */
+    public function getEmail(): string
     {
         return htmlentities($this->email);
     }
@@ -60,7 +65,7 @@ class Users{
      * Set the value of email
      *
      * @return  self
-     */ 
+     */
     public function setEmail(string $email)
     {
         $this->email = $email;
@@ -70,7 +75,7 @@ class Users{
 
     /**
      * Get the value of password
-     */ 
+     */
     public function getPassword()
     {
         return $this->password;
@@ -80,7 +85,7 @@ class Users{
      * Set the value of password
      *
      * @return  self
-     */ 
+     */
     public function setPassword($password)
     {
         $this->password = $password;
@@ -90,7 +95,7 @@ class Users{
 
     /**
      * Get the value of created_at
-     */ 
+     */
     public function getCreated_at()
     {
         return $this->created_at;
@@ -100,7 +105,7 @@ class Users{
      * Set the value of created_at
      *
      * @return  self
-     */ 
+     */
     public function setCreated_at($created_at)
     {
         $this->created_at = $created_at;
@@ -110,7 +115,7 @@ class Users{
 
     /**
      * Get the value of token
-     */ 
+     */
     public function getToken()
     {
         return $this->token;
@@ -120,7 +125,7 @@ class Users{
      * Set the value of token
      *
      * @return  self
-     */ 
+     */
     public function setToken($token)
     {
         $this->token = $token;

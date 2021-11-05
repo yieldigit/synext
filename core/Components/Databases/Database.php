@@ -4,34 +4,34 @@ namespace Synext\Components\Databases;
 
 use PDO;
 
+/**
+ * [Description Database] manipulate the database
+ */
 class Database
 {
-    private $DB_HOST;
-    private $DB_USER;
-    private $DB_PASS;
-    private $DB_NAME;
-    protected $db;
+
 
     public function __construct()
     {
-        $this->DB_HOST = '';
-        $this->DB_USER = '';
-        $this->DB_PASS = '';
-        $this->DB_NAME = '';
+        $dsn = getenv('DB_CONNECTION') . ":host=" . getenv('DB_HOST') . ";port=" . getenv('DB_PORT') . ";dbname=" . getenv('DB_NAME') . ";";
         try {
-            $this->db = new PDO('mysql:host='.$this->DB_HOST.';dbname='.$this->DB_NAME.';charset=utf8', $this->DB_USER, $this->DB_PASS,
-            [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-            ]);
+            $this->db = new PDO(
+                $dsn . 'charset=utf8',
+                getenv('DB_USER'),
+                getenv('DB_PASS'),
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+                ]
+            );
         } catch (\PDOException $e) {
-            die('Impossible de se connecter à la base de donnée '.$e->getMessage().'<br>');
+            die('Unable to connect to the database ' . $e->getMessage() . '<br>');
         }
     }
 
-    public static function pdo(): PDO
+    public  function pdo(): PDO
     {
-        return self::$db;
+        return $this->db;
     }
 
     public function select(string $query, bool $fetchAll = true, array $value = null, int $fetchmod = null, string $classname = null)
@@ -103,5 +103,6 @@ class Database
         if ($update->execute($value)) {
             return true;
         }
+        return false;
     }
 }

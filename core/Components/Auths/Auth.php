@@ -2,7 +2,12 @@
 
 namespace Synext\Components\Auths;
 
-class Auth
+use Synext\Models\Users;
+
+/**
+ * [Description Auth] to manage user login and register
+ */
+class Auth extends Users
 {
     /**
      * Function using to generate random Token for account activation .
@@ -14,10 +19,14 @@ class Auth
      */
     public static function Token(int $length): string
     {
-        $keys = '0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN';
-
-        return substr(str_shuffle(str_repeat($keys, $length)), 0, $length);
+        return token($length);
     }
 
+    public function login()
+    {
+    }
 
+    public function register()
+    {
+    }
 }

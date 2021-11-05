@@ -1,0 +1,1 @@
+# Synext framework documentation
