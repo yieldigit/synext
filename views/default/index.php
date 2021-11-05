@@ -1,9 +1,8 @@
-<? @layout::default ;?>
+<? #layout::layouts/index; 
+?>
+<?php $h = ""; ?>
 <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <h1 class="mt-5">Welcom to Synext-Framework Interface</h1>
-        <p class="lead"> Simple Home Framework !</p>
-      </div>
+        <h1 style="padding-top: 50%;">Hello, Synext!</h1>
     </div>
-  </div>
+</div>

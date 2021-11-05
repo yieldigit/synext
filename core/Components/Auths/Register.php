@@ -2,8 +2,6 @@
 namespace Synext\Components\Auths;
 
 use Synext\Components\Databases\Database;
-use Synext\Components\Emails\SendMail;
-use Synext\Components\Htmls\HtmlTemplate;
 use Synext\Models\Users;
 
 class Register{
@@ -11,5 +9,4 @@ class Register{
     {
         $this->db = $db;
     }
-
 }

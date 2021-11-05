@@ -71,4 +71,22 @@ class Header
         <meta name="keywords" content="'.$this->keywords.' ">
         <meta property="og:url" content="'.$this->url.'" />';
     }
+
+    private function favicon(){
+        return <<<HTML
+        <link rel="apple-touch-icon" sizes="180x180" href="/storages/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/storages/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/storages/images/favicon-16x16.png">
+        <link rel="manifest" href="{}">
+        <link rel="shortcut icon" href="{}">
+HTML;
+    }
+    private function author(){
+        return <<<HTML
+        <!-- Keywords -->
+        <meta name="keywords" content="">
+        <!-- Author -->
+        <meta name="author" content="">
+HTML;
+    }
 }

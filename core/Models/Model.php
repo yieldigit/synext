@@ -31,7 +31,7 @@ class Model{
     public function  findId(string $table){
         return $this->db->select("SELECT id from {$table}");
     }
-    public function save($table,$data){
-        //if($this->db->insert("INSERT INTO {$table} (".implode(',',array_keys($data)).")",$data)){}
+    public function pdo(){
+       return $this->db;
     }
 }

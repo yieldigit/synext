@@ -2,10 +2,6 @@
 
 namespace Synext\Components\Auths;
 
-use Synext\Controllers\User;
-use Synext\Helpers\Redirect;
-use Synext\Helpers\Session;
-
 class Auth
 {
     /**
@@ -23,27 +19,5 @@ class Auth
         return substr(str_shuffle(str_repeat($keys, $length)), 0, $length);
     }
 
-    public static function isConnect(){
-        Session::checkSession();
-        if(!isset($_SESSION['Auth'])){
-            Redirect::To('/login');
-            exit;
-        }
-    }
-
-    public static function allow(string $role)
-    {
-        //sql slug role getinfo() roles
-        self::isConnect();
-        if ((new User)->getRoleById((new User)->getUserById(self::who())->getRole_id())->name === $role) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public static function who():int{
-        self::isConnect();
-        return $_SESSION['Auth'];
-    }
 
 }

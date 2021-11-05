@@ -101,6 +101,7 @@ class Router{
         $this->router->addRoutes($routes);
         return $this;
     }
+
     public function run(): self
     {   /**
         * @var  array or bool 
@@ -127,14 +128,7 @@ class Router{
         /** i can get more then 1 line */
         $layout_line = trim(str_replace(['?','<','>',';'],'',rtrim(file($view_content_files)[0])));
         /** i can do more */
-        $layout = $layout_line[0] === '@' ? $this->view_path.explode('::',$layout_line)[1].'.php' : false;
-       // $layout = $this->view_path.explode('::',$layout_line)[1].'.php';
-        // $f = new RecursiveDirectoryIterator($this->view_path);
-        // // dd($f);
-        // foreach(new RecursiveIteratorIterator($f) as $file)
-        // {
-        //     dump($file);
-        // }
+        $layout = $layout_line[0] === '#' ? $this->view_path.explode('::',$layout_line)[1].'.php' : false;
 
         if(!is_bool($layout) && !file_exists($layout)){
             /** view file not found */
@@ -142,8 +136,8 @@ class Router{
             Http::status(404);
             die();
         }
-
-        if($layout_line[0] === '@'){
+        $params = $match['params'];
+        if($layout_line[0] === '#'){
             ob_start();
             require_once $view_content_files;
             $contents = ob_get_clean();
@@ -153,6 +147,7 @@ class Router{
         }else{
             require_once $view_content_files;
         }
+        
         return $this;
     }
 }

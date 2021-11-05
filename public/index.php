@@ -3,19 +3,26 @@
 use Synext\Routers\Router;
 
 require '../vendor/autoload.php';
+$root_path = DIRECTORY_SEPARATOR . dirname($_SERVER['DOCUMENT_ROOT']);
+define('ROOT_PATH', $root_path);
 /** Error handler */
 (new \Whoops\Run())->pushHandler(new \Whoops\Handler\PrettyPageHandler())->register();
 
 /**public folder */
-$public_paths = DIRECTORY_SEPARATOR.basename($_SERVER['DOCUMENT_ROOT']);
+$public_paths = DIRECTORY_SEPARATOR . basename($_SERVER['DOCUMENT_ROOT']);
+
+/**load env file  */
+$dotenv = Dotenv\Dotenv::createImmutable(ROOT_PATH);
+$dotenv->load();
 /** global views paths */
-$view_paths = DIRECTORY_SEPARATOR.dirname($_SERVER['DOCUMENT_ROOT']).DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR;
+$view_paths = ROOT_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR;
 
 /** Router  */
-$router = new Router($view_paths,$public_paths);
+$router = new Router($view_paths, $public_paths);
 
-$router->get('/','default/index')
-        //     ->resource(
-        //             [['GET','/li','pop',]]
-        //     )
+
+$router
+
+    ->get('/', 'admins/ap')
+
     ->run();

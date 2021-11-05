@@ -49,7 +49,7 @@ class Users{
     }
 
     /**
-     * Get the value of email
+     * Get the value of email 
      */ 
     public function getEmail():string
     {
