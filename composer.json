@@ -23,6 +23,9 @@
         "psr-4": {
             "Synext\\": "core/"
         },
-        "files": ["core/config.php"]
+        "files": [
+            "core/config.php",
+            "core/helpers.php"
+        ]
     }
 }

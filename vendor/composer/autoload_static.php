@@ -17,6 +17,7 @@ class ComposerStaticInitbac2208913a18e0070636e9ae5746172
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '785a6ebfb85cc06ad6ce3cfba04e67b0' => __DIR__ . '/../..' . '/core/config.php',
+        '15d23ada66abb44afbdbd92459021428' => __DIR__ . '/../..' . '/core/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
