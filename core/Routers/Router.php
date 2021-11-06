@@ -145,7 +145,6 @@ class Router
         } else {
             require_once $view_content_files;
         }
-
-        return $this;
+        return $router;
     }
 }
