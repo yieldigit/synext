@@ -1,5 +1,5 @@
 <?php 
-namespace Synext\Exceptions;
+namespace Synext\Exceptions\Https;
 
 use Exception;
 

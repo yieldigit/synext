@@ -80,3 +80,15 @@ function to403page()
     Http::status(403);
     die();
 }
+
+/**
+ * Redirect to 403 Page
+ *
+ * @return void
+ */
+function to500page()
+{
+    require_once '../views/errors/500.php';
+    Http::status(500);
+    die();
+}

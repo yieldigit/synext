@@ -5,6 +5,8 @@ namespace Synext\Routers;
 use Exception;
 use AltoRouter;
 use Synext\Requests\Http;
+use Synext\Exceptions\Files\FileNotFoundException;
+use Synext\Exceptions\Routers\RouteNotFoundException;
 
 class Router
 {
@@ -113,7 +115,8 @@ class Router
         $match = $this->router->match();
         if (is_bool($match) && $match === false) {
             /** Route not found */
-            to400page();
+            // to400page();should redirect to 404 page on debug false
+            throw new RouteNotFoundException("The Route not found");
         }
 
         [$route_view, $route_param, $route_name] = array_values($match);
@@ -122,7 +125,8 @@ class Router
 
         if (!file_exists($view_content_files)) {
             /** view file not found */
-            to404page();
+            // to404page(); should redirect to 404 page on debug false
+            throw new FileNotFoundException("View file not found");
         }
 
         /** i can get more then 1 line */
@@ -132,7 +136,8 @@ class Router
 
         if (!is_bool($layout) && !file_exists($layout)) {
             /** view file not found */
-            to404page();
+            // to404page() should redirect to 404 page on debug false;
+            throw new FileNotFoundException("Layout file not found");
         }
         $params = $match['params'];
         if ($layout_line[0] === '#') {
