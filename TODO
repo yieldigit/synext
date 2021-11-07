@@ -1,36 +1,31 @@
 rewrite validator class
-rewrite form html class 
-think about controle@index --- return index view 
-return route this and params : 
-function to check if sessio variable exist
-add s to session folder 
-update auth folder
-for Session::get key can be null
-create set methode to session class
-think about push methode in session class 
+rewrite form html class
+think about controle@index --- return index view
+think about push methode in session class
 add addheader to requtes class
 write orm database
 write config class like laminas-config
 rename statics content folder to asset
-think about inclusion in view path :: <?php dump(file_exists("../views/gerant_ui/conso.php")); die();?>
-write view render like function 
+think about inclusion in view path :: <?php dump(file_exists("../views/gerant_ui/conso.php"));
+                                        die(); ?>
+write view render like function
 
-if key is set 
-    $is_set = function($key) use ($data) {
-        return array_key_exists($key,$data) && !empty($data[$key]);
-    };
-    $r = array_map($is_set,["slug","description","keyword","description"]);
-    $r = in_array(false,$r);
-    
-    
-    function is_set(array $keys,array $data){
-        if(count($keys) != count($data)){
-        return true;
-    }
-    $is_set = function($key) use ($data) {
-        return array_key_exists($key,$data) && !empty($data[$key]);
-    };
-    return in_array(false,array_map($is_set,$keys));
+if key is set
+$is_set = function($key) use ($data) {
+return array_key_exists($key,$data) && !empty($data[$key]);
+};
+$r = array_map($is_set,["slug","description","keyword","description"]);
+$r = in_array(false,$r);
+
+
+function is_set(array $keys,array $data){
+if(count($keys) != count($data)){
+return true;
+}
+$is_set = function($key) use ($data) {
+return array_key_exists($key,$data) && !empty($data[$key]);
+};
+return in_array(false,array_map($is_set,$keys));
 }
 Groupe Route
 Create cmd can help to generate model using database table structure

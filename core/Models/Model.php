@@ -16,7 +16,7 @@ class Model extends Database
      * 
      * @param array $data
      * 
-     * @return [int|bool]
+     * @return int|bool
      */
     public function save(array $data)
     {
@@ -30,7 +30,7 @@ class Model extends Database
     /**
      * @param int $id
      * 
-     * @return [bool]
+     * @return bool
      */
     public function unsave(int $id)
     {
@@ -40,7 +40,7 @@ class Model extends Database
     /**
      * @param array $data
      * 
-     * @return [bool]
+     * @return bool
      */
     public function modifed(array $data)
     {
