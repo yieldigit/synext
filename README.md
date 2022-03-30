@@ -57,17 +57,17 @@ If you discover any security related issues, please email :author_email instead 
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/informatutos/synext-framework.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/yieldigit/synext-framework.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/informatutos/synext-framework/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/informatutos/synext-framework.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/informatutos/synext-framework.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/informatutos/synext-framework.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/yieldigit/synext-framework/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/yieldigit/synext-framework.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/yieldigit/synext-framework.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/yieldigit/synext-framework.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/laravel/framework
-[link-scrutinizer]: https://scrutinizer-ci.com/g/informatutos/synext-framework/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/informatutos/synext-framework
+[link-scrutinizer]: https://scrutinizer-ci.com/g/yieldigit/synext-framework/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/yieldigit/synext-framework
 [link-author]: https://github.com/ambroisehdn
 [link-contributors]: ../../contributors
-[synext repository]: https://github.com/Informatutos/synext
+[synext repository]: https://github.com/yieldigit/synext
 [ico-author]: https://img.shields.io/badge/Author-Ambroise%20Hound-blue
