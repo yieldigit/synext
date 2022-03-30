@@ -21,6 +21,10 @@ class ComposerStaticInitbac2208913a18e0070636e9ae5746172
     );
 
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'splitbrain\\phpcli\\' => 18,
+        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -58,6 +62,10 @@ class ComposerStaticInitbac2208913a18e0070636e9ae5746172
     );
 
     public static $prefixDirsPsr4 = array (
+        'splitbrain\\phpcli\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/splitbrain/php-cli/src',
+        ),
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',

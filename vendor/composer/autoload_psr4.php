@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'splitbrain\\phpcli\\' => array($vendorDir . '/splitbrain/php-cli/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Synext\\' => array($baseDir . '/core'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),

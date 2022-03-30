@@ -1,10 +1,10 @@
 {
-    "name": "informatutos/synext",
+    "name": "yieldigit/synext",
     "description": "simple fast php home framework :) !",
     "type": "project",
     "license": "MIT",
     "authors": [{
-        "name": "Ambroise Hound",
+        "name": "ambroisehdn",
         "email": "ambroisehound@gmail.com"
     }],
     "minimum-stability": "dev",
@@ -12,7 +12,8 @@
         "php": ">=7.4.5",
         "altorouter/altorouter": "^2.0",
         "swiftmailer/swiftmailer": "^6.0",
-        "vlucas/phpdotenv": "5.3.x-dev"
+        "vlucas/phpdotenv": "5.3.x-dev",
+        "splitbrain/php-cli": "dev-master"
     },
     "require-dev": {
         "symfony/var-dumper": "^5.1",
